@@ -1,0 +1,16 @@
+import random
+
+nomes = []
+
+quantidade = input("Quantas pessoas compraram a rifa? ")
+while not quantidade.isdigit() or int(quantidade) <= 0:
+    quantidade = input("Digite um número inteiro maior que zero: ")
+quantidade = int(quantidade)
+
+for i in range(quantidade):
+    nome = input(f"Digite o nome da pessoa {i + 1}: ")
+    while not nome.strip():
+        nome = input("Nome inválido. Digite novamente: ")
+    nomes.append(nome.strip())
+
+print("\nO ganhador da rifa é:", random.choice(nomes))
