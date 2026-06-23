@@ -1,0 +1,45 @@
+users = []
+passwords = []
+
+def cadastrar():
+	nome = input("Nome de usuário: ").strip()
+	while not nome:
+		nome = input("Nome vazio. Digite um nome de usuário: ").strip()
+	if nome in users:
+		print("Usuário já cadastrado.")
+		return
+	senha = input("Senha: ")
+	while not senha:
+		senha = input("Senha vazia. Digite uma senha: ")
+	users.append(nome)
+	passwords.append(senha)
+	print("Cadastro realizado com sucesso!\n")
+
+def login():
+	nome = input("Usuário: ").strip()
+	senha = input("Senha: ")
+	if nome in users:
+		idx = users.index(nome)
+		if passwords[idx] == senha:
+			print("Login bem-sucedido!\n")
+			return
+	print("Usuário ou senha incorretos.\n")
+
+def main():
+	while True:
+		print("1 - Cadastrar")
+		print("2 - Login")
+		print("3 - Sair")
+		opc = input("Escolha uma opção: ")
+		if opc == '1':
+			cadastrar()
+		elif opc == '2':
+			login()
+		elif opc == '3':
+			print("Saindo...")
+			break
+		else:
+			print("Opção inválida.\n")
+
+if __name__ == '__main__':
+	main()
