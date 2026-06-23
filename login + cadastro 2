@@ -1,0 +1,23 @@
+lista_logins = []
+lista_senhas = []
+
+print("CADASTRO (digite 'sair' para terminar)")
+while True:
+    login = input("Usuário: ").strip()
+    if login.lower() == 'sair':
+        break
+    if login in lista_logins:
+        print("Usuário já cadastrado.")
+        continue
+    senha = input("Senha: ")
+    lista_logins.append(login)
+    lista_senhas.append(senha)
+    print("Cadastrado.\n")
+
+print("\nLOGIN")
+usuario = input("Usuário: ").strip()
+senha = input("Senha: ")
+if usuario in lista_logins and lista_senhas[lista_logins.index(usuario)] == senha:
+    print("Login bem-sucedido.")
+else:
+    print("Acesso negado.")
